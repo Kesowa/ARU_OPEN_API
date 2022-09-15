@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: 'This documentation is about the backend of Kesowa ARU webapp.  You can find out more about ARU at [https://kesowa.com/](https://kesowa.com/)'
-  version: 1.3.11
+  version: 1.4.11
   title: Kesowa API
   termsOfService: 'https://kesowa.com/about-us/'
   contact:
@@ -11,7 +11,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: 'localhost:5011'
-basePath: /api/v1
+basePath: /apis/v1
 paths:
   /alert/upload-alert-image:
     post:
@@ -5506,7 +5506,7 @@ paths:
       parameters:
         - in: query
           name: filter
-          description: Filters for advanced results
+          description: 'Filter by mission status (''all'', ''Live'', ''Review'', etc)'
           type: string
         - in: query
           name: missionType
@@ -5514,15 +5514,15 @@ paths:
           type: string
         - in: query
           name: client
-          description: Client
+          description: 'if ''true'', only returns missions with clients'
           type: string
         - in: query
           name: sort
-          description: 'String of format <field>:<sorting order> used to get result sorted in some order by some field'
+          description: 'String of format <field>:<sorting order>. Example: createdAt:descend, updatedAt:ascend'
           type: string
         - in: query
           name: page
-          description: Page number for paginated results
+          description: Page number for paginated results. Starts from 0
           type: integer
         - in: query
           name: limit
@@ -5530,7 +5530,7 @@ paths:
           type: integer
         - in: query
           name: searchFilters
-          description: Search filters for advanced results
+          description: 'Search within multiple fields with comma-separated params. Example ''user:Dave,createdAt:2022-09-11,flight:2022-10-10,clientId:John'''
           type: string
       responses:
         '200':
@@ -5951,7 +5951,7 @@ paths:
       responses:
         '200':
           description: Success
-  /missiontype/create:
+  /common/missiontype/create:
     post:
       tags:
         - Mission Type APIs
@@ -5971,7 +5971,7 @@ paths:
       responses:
         '200':
           description: Success
-  /missiontype/edit:
+  /common/missiontype/edit:
     post:
       tags:
         - Mission Type APIs
@@ -5991,7 +5991,7 @@ paths:
       responses:
         '200':
           description: Success
-  /missiontype/delete:
+  /common/missiontype/delete:
     post:
       tags:
         - Mission Type APIs
@@ -6011,7 +6011,7 @@ paths:
       responses:
         '200':
           description: Success
-  /missiontype/getall:
+  /common/missiontype/getall:
     get:
       tags:
         - Mission Type APIs

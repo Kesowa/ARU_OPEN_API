@@ -9,4 +9,10 @@
 - Use swagger-cli to generate the spec sheet :
   `swagger-cli bundle openAPI.yaml --outfile result.yaml --type yaml`
 
-After this, the finally generated spec sheet will be the `result.yaml` file
+- Install redoc-cli
+  `npm i -g redoc-cli`
+
+- Generate static html
+  `redoc-cli build result.yaml`
+
+After this, the finally generated documentation will be the `redoc-static.html` file
