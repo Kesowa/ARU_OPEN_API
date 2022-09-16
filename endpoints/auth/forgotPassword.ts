@@ -1,5 +1,5 @@
 import { endpoint, request, body, response, defaultResponse, String, DateTime } from "@airtasker/spot";
-import { ApiError, BadRequest} from "../../misc";
+import { ApiError, BadRequest } from "../../misc";
 
 /**
  * Mail password reset token
@@ -26,7 +26,7 @@ class ForgotPasswordAuth {
     ServerError(@body body: {
         status: false,
         message: "Something Went Wrong! Please try again"
-    }) {}
+    }) { }
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }

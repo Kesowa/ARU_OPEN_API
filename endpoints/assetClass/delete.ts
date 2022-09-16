@@ -21,7 +21,7 @@ class CreateAssetClass {
     BadRequest(@body body: BadRequest) { }
 
     @response({ status: 404 })
-    NotFound(@body body: CreateAssetClassNotFound) {}
+    NotFound(@body body: CreateAssetClassNotFound) { }
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }

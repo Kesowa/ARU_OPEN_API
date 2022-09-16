@@ -21,7 +21,7 @@ class GetByIdAssetClass {
     BadRequest(@body body: BadRequest) { }
 
     @response({ status: 404 })
-    NotFound(@body body: GetByIdAssetClassNotFound) {}
+    NotFound(@body body: GetByIdAssetClassNotFound) { }
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }

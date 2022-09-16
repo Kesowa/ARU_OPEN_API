@@ -1,5 +1,5 @@
 import { endpoint, request, body, response, defaultResponse, String, DateTime, pathParams } from "@airtasker/spot";
-import { ApiError, BadRequest, MongoId} from "../../misc";
+import { ApiError, BadRequest, MongoId } from "../../misc";
 
 /**
  * Trigger password reset mail
@@ -38,7 +38,7 @@ interface GetResetPasswordAuthResponse {
 /**
  * Set new password
  */
- @endpoint({
+@endpoint({
     method: "POST",
     path: "/auth/reset-password/:token",
     tags: ["AUTH"]
@@ -46,11 +46,11 @@ interface GetResetPasswordAuthResponse {
 class PostResetPasswordAuth {
     @request
     request(
-        @pathParams pathParams: { token: MongoId},
+        @pathParams pathParams: { token: MongoId },
         @body body: {
             password: String,
             password2: String
-        }    
+        }
     ) { }
 
     @response({ status: 201 })

@@ -57,8 +57,8 @@ interface LoginAuthNotFound {
 
 interface LoginAuthUnauthorized {
     status: false,
-    message: "User is not active" 
-    | "Client has expired" 
-    | "invalid password." 
+    message: "User is not active"
+    | "Client has expired"
+    | "invalid password."
     | "The credentials you are trying to log-in with are expired!"
 }

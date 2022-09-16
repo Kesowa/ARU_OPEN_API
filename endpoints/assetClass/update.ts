@@ -21,7 +21,7 @@ class UpdateAssetClass {
     BadRequest(@body body: BadRequest) { }
 
     @response({ status: 404 })
-    NotFound(@body body: UpdateAssetClassNotFound) {}
+    NotFound(@body body: UpdateAssetClassNotFound) { }
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }
