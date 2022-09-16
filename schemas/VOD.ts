@@ -1,4 +1,4 @@
-import { MongoId } from "./misc";
+import { MongoId } from "../misc";
 
 export interface IVOD {
   _id: MongoId,

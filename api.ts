@@ -1,5 +1,7 @@
 import { api, body, endpoint, request, response, String } from "@airtasker/spot";
 
+import "./endpoints/*";
+
 @api({ name: "my-api" })
 class Api {}
 

@@ -1,4 +1,4 @@
-import { MongoId } from "./misc";
+import { MongoId } from "../misc";
 
 export interface IUserGroup {
     _id: MongoId,
