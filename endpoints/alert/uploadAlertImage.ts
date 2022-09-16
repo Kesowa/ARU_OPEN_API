@@ -1,42 +1,37 @@
-import { endpoint, request, body, response } from "@airtasker/spot";
-import { FilePath } from "../../misc";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
+import { FilePath, File, ApiError, BadRequest, SizeExceeded } from "../../misc";
 
 /**
  * This should be a multipart form-data
- * Upload alert image
  */
 @endpoint({
     method: "POST",
-    path: "/users"
+    path: "/alert/upload-alert-image",
+    tags: ["ALERT"]
 })
 class UploadAlertImage {
     @request
-    request(
-        @body body: Request
-    ) { }
+    request(@body body: UploadRequest) { }
 
     @response({ status: 201 })
-    successfulResponse(
-        @body body: SuccessResponse
-    ) { }
+    successfulResponse(@body body: UploadResponse) { }
 
-    @response({status: 400})
-    BadResponse(
-        @body body: BadResponse
-    ) { }
+    @response({ status: 400 })
+    BadRequest(@body body: BadRequest) { }
+
+    @response({ status: 403 })
+    SizeError(@body body: SizeExceeded) { }
+
+    @defaultResponse
+    defaultResponse(@body body: ApiError) { }
 }
 
-interface Request {
-    image: Blob;
+interface UploadRequest {
+    image: File;
 }
 
-interface SuccessResponse {
+interface UploadResponse {
     status: true,
     message: "file uploaded successfully",
     file: FilePath
-}
-
-interface BadResponse {
-    status: false,
-    message: "Invalid file."
 }

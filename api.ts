@@ -1,33 +1,17 @@
-import { api, body, endpoint, request, response, String } from "@airtasker/spot";
+import { api, config, securityHeader} from "@airtasker/spot";
 
-import "./endpoints/*";
+import "./endpoints/alert";
 
-@api({ name: "my-api" })
-class Api {}
-
-@endpoint({
-  method: "POST",
-  path: "/users"
+@api({ name: "ARU API", version: "1.4.11" })
+@config({
+  paramSerializationStrategy: {
+    query: {
+      array: "comma"
+    }
+  }
 })
-class CreateUser {
-  @request
-  request(
-    @body body: CreateUserRequest
-  ) {}
-
-  @response({ status: 201 })
-  successfulResponse(
-    @body body: CreateUserResponse
-  ) {}
-}
-
-interface CreateUserRequest {
-  firstName: String;
-  lastName: String;
-}
-
-interface CreateUserResponse {
-  firstName: String;
-  lastName: String;
-  role: String;
+class Api {
+  /**Session-based auth using bearer token */
+  @securityHeader
+  "Authorization": string
 }
