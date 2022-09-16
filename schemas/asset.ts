@@ -1,15 +1,12 @@
+import { String, Date } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
 export interface IAsset {
     _id: MongoId,
-    assetName: string,
+    assetName: String,
     userID: MongoId,
     tenantID: MongoId,
-    assetInfo: [{
-        UIN: string,
-        FCID: string,
-        serialNO: string,
-    }],
+    assetInfo: AssetInfo[],
     manufactureID: MongoId,
 
     createdBy: MongoId,
@@ -19,4 +16,10 @@ export interface IAsset {
     manufactureDate: Date,
     createdAt: Date,
     updatedAt: Date,
+}
+
+export interface AssetInfo {
+    UIN: String,
+    FCID: String,
+    serialNO: String,
 }
