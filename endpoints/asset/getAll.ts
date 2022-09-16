@@ -3,7 +3,7 @@ import { ApiError, BadRequest } from "../../misc";
 import { IAsset } from "../../schemas/asset";
 
 /**
- * Get alerts owned by the tenant of the user account
+ * Get all assets
  */
 @endpoint({
     method: "GET",

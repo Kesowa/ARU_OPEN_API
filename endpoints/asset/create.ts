@@ -3,7 +3,7 @@ import { ApiError, BadRequest, MongoId } from "../../misc";
 import { AssetInfo, IAsset } from "../../schemas/asset";
 
 /**
- * Get alerts owned by the tenant of the user account
+ * Create asset
  */
 @endpoint({
     method: "POST",
@@ -14,7 +14,7 @@ class CreateAsset {
     @request
     request(@body body: CreateAssetRequest) { }
 
-    @response({ status: 200 })
+    @response({ status: 201 })
     successfulResponse(@body body: CreateAssetResponse) { }
 
     @response({ status: 400 })

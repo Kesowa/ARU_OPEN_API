@@ -3,7 +3,7 @@ import { ApiError, BadRequest, MongoId } from "../../misc";
 import { IAsset } from "../../schemas/asset";
 
 /**
- * Get alerts owned by the tenant of the user account
+ * Get asset
  */
 @endpoint({
     method: "GET",
