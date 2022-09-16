@@ -1,3 +1,4 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
 export interface IUserGroup {
@@ -8,6 +9,6 @@ export interface IUserGroup {
     createdBy: MongoId,
     updatedBy: MongoId,
     isActive: boolean,
-    createdAt: Date,
-    updatedAt: Date,
+    createdAt: DateTime,
+    updatedAt: DateTime,
 }

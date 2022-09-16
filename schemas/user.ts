@@ -1,3 +1,4 @@
+import { Date, DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
 export interface IUser {
@@ -23,6 +24,6 @@ export interface IUser {
     expiryDatee?: Date,
     avatar: string,
     passwordResetToken: string,
-    createdAt: Date,
-    updatedAt: Date,
+    createdAt: DateTime,
+    updatedAt: DateTime,
 }
