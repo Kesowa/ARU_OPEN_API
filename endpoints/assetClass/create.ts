@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, Date } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, Date, String } from "@airtasker/spot";
 import { ApiError, BadRequest} from "../../misc";
 import { IAssetClass } from "../../schemas/assetClass";
 
