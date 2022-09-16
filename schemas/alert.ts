@@ -1,5 +1,5 @@
 import { FilePath, MongoId } from "../misc";
-import { Date, Float, Integer } from "@airtasker/spot";
+import { DateTime, Float, Integer } from "@airtasker/spot";
 
 export interface IAlert {
   _id: MongoId,
@@ -19,6 +19,6 @@ export interface IAlert {
   type?: string,
   image: FilePath,
   locationId?: MongoId,
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: DateTime,
+  updatedAt: DateTime,
 }

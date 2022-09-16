@@ -1,8 +1,9 @@
+import { DateTime, String } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
 export interface IAssetClass {
     _id: MongoId,
-    typeName: string,
-    createdAt: Date,
+    typeName: String,
+    createdAt: DateTime,
     createdBy: MongoId
 }
