@@ -1,4 +1,5 @@
-import { MongoId } from "../misc";
+import { Date, DateTime } from "@airtasker/spot";
+import { Color, MongoId } from "../misc";
 
 export interface ILayer {
     _id: MongoId,
@@ -11,12 +12,12 @@ export interface ILayer {
     updatedBy: MongoId,
     layerGroupId: MongoId,
     captureDate: Date,
-    color: string,
+    color: Color,
     layerpath: string,
     name: string,
-    layerdataArr: [{}];
+    layerdataArr: {}[];
     //here why arent we creating an array 
-    center: [{}],
+    center: {}[],
     minp: number,
     maxp: number,
     featureCount: number,
@@ -25,6 +26,6 @@ export interface ILayer {
     isPublic: boolean,
     isBase: boolean,
     fileSize: number,
-    createdAt: Date,
-    updatedAt: Date,
+    createdAt: DateTime,
+    updatedAt: DateTime,
 }

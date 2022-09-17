@@ -4,6 +4,7 @@ import "./endpoints/alert";
 import "./endpoints/asset";
 import "./endpoints/assetClass";
 import "./endpoints/auth";
+import "./endpoints/baseLayer";
 
 
 @api({ name: "ARU API", version: "1.4.11" })

@@ -1,5 +1,5 @@
 import { endpoint, request, body, response, defaultResponse, queryParams, Integer, String } from "@airtasker/spot";
-import { ApiError, BadRequest } from "../../misc";
+import { ApiError, BadRequest, Time } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 
 /**
@@ -28,14 +28,7 @@ class GetByTenantID {
 }
 
 interface GetByTenantIDRequest {
-    /**
-     * Format: Value TimeUnit
-     * 
-     * TimeUnit: day(s), week(s), year(s)
-     * 
-     * Example: 10 days
-     */
-    time?: String
+    time?: Time
 }
 
 interface GetByTenantIDResponse {

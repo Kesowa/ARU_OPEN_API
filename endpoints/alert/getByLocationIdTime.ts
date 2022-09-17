@@ -1,5 +1,5 @@
 import { endpoint, request, body, response, defaultResponse, queryParams, String } from "@airtasker/spot";
-import { ApiError, MongoId, BadRequest } from "../../misc";
+import { ApiError, MongoId, BadRequest, Time } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 
 /**
@@ -32,14 +32,7 @@ class GetByLocationAndTime {
 
 interface GetByLocationAndTimeRequest {
     locationID: MongoId,
-    /**
-     * Format: Value TimeUnit
-     * 
-     * TimeUnit: day(s), week(s), year(s)
-     * 
-     * Example: 10 days
-     */
-    time: String
+    time: Time
 }
 
 interface GetByLocationAndTimeResponse {
