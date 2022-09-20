@@ -1,3 +1,4 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
 export interface IMission {
@@ -13,6 +14,6 @@ export interface IMission {
   clientId?: MongoId[],
   missionType: MongoId,
   invites?: MongoId[],
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: DateTime,
+  updatedAt: DateTime,
 }
