@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, Date, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, Date } from "@airtasker/spot";
 import { ApiError, BadRequest, File, MongoId } from "../../misc";
 import { ILayer } from "../../schemas/layer";
 
@@ -29,8 +29,8 @@ class CreateBaseRasterUpload {
 
 interface CreateBaseRasterUploadRequest {
     file: File,
-    name: String,
-    type: String,
+    name: string,
+    type: string,
     raster: MongoId,
     captureDate: Date
 }

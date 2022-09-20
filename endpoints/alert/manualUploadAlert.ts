@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, Integer, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest, File, SizeExceeded } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 
@@ -33,16 +33,16 @@ interface ManualRequest {
     image: File,
     missionId: MongoId,
     flightId: MongoId,
-    locationName: String,
+    locationName: string,
     locationId?: MongoId,
     // location?: {
     //     lat: Float,
     //     long: Float
     // },
-    note?: String,
+    note?: string,
     onSite?: boolean,
     pcount: Integer,
-    type: String,
+    type: string,
 
 }
 

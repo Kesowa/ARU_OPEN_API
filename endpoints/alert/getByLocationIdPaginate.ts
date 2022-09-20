@@ -1,6 +1,9 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, String, Integer } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
-import { IAlert } from "../../schemas/alert";
+import { IUser } from "../../schemas/user";
+import { IAlert, IAlertBase } from "../../schemas/alert";
+import { IFlight } from "../../schemas/flight";
+import { IMission } from "../../schemas/mission";
 
 /**
  * Provide one of either parameters
@@ -32,14 +35,15 @@ interface GetByLocationIdPaginateRequest {
     limit: Integer,
     /** Location ID */
     id: MongoId,
-    /**
-     * Sort using field name in desc or asc order
-     * 
-     * Format: (FieldName):(desc|asc)
-     * 
-     * FieldName: createdAt,updatedAt,location,locationName,pcount,fileSize,type
-     */
-     sortBy: String,
+    /** Sort using field name in desc or asc order
+     * @oaSchemaProp title
+     * "Time Format"
+     * @oaSchemaProp pattern
+     * "^(createdAt|updatedAt|location|locationName|pcount|fileSize|type):(desc|asc)$"
+     * @oaSchemaProp example
+     * "createdAt:desc"
+     *  */
+    sortBy: string,
 }
 
 interface GetByLocationIdPaginateResponse {
@@ -49,9 +53,15 @@ interface GetByLocationIdPaginateResponse {
     /**
      * Has the missionId, FlightId, and createdBy fields populated with mission, flight, and user models
      */
-    data: IAlert[],
+    data: GetByLocationIdPaginateData[],
 }
 
+interface GetByLocationIdPaginateData extends IAlertBase {
+    missionId: IMission,
+    createdBy: IUser,
+    flightId: IFlight,
+    tenantId: MongoId,
+}
 
 interface GetByLocationIdPaginateNotFound {
     status: false,

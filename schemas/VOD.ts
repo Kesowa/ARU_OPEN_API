@@ -1,16 +1,22 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IVOD {
+export interface IVODBase {
   _id: MongoId,
-  flightID: MongoId,
-  missionID: MongoId,
   videoPath: string,
   thumbnail: string,
-  locationID?: MongoId,
-  tenantId: MongoId,
   videoName: string,
   fileSize: number,
   isSRT: boolean,
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: DateTime,
+  updatedAt: DateTime,
 }
+
+export interface IVODLink {
+  flightID: MongoId,
+  missionID: MongoId,
+  locationID?: MongoId,
+  tenantId: MongoId,
+}
+
+export interface IVOD extends IVODBase, IVODLink {}

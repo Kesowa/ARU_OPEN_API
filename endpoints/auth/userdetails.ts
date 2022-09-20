@@ -1,6 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, String, DateTime } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest } from "../../misc";
-import { IUser } from "../../schemas/user";
+import { IUserCustomPermission } from "./login";
 
 /**
  * Get user details
@@ -30,5 +30,5 @@ interface UserDetailsAuthResponse {
     /**
      * Custom permissions User group permissions are populated
      */
-    data: IUser,
+    data: IUserCustomPermission,
 }

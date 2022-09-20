@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, Attrs, BadRequest, MongoId } from "../../misc";
 
 /**
@@ -38,11 +38,11 @@ interface GetMetaDataUpdateResponse {
         pattr: Attrs[],
         layerAttr: {
             missionId: MongoId,
-            missionName: String,
+            missionName: string,
             layers: {
                 _id: MongoId,
-                name: String,
-                fields: String[]
+                name: string,
+                fields: string[]
             }[]
         }[]
     }

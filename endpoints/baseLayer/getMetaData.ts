@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
 
 /**
@@ -26,7 +26,7 @@ class GetMetaDataBaseLayer {
         /**
          * Layer types found. Layers should be of same type.
          */
-        data: String[]
+        data: string[]
     }) {}
 
     @response({ status: 404 })
@@ -45,11 +45,11 @@ interface GetMetaDataBaseLayerResponse {
     message: "got the right stuff",
     data: {
         missionId: MongoId,
-        missionName: String,
+        missionName: string,
         layers: {
             _id: MongoId,
-            name: String,
-            fields: String[]
+            name: string,
+            fields: string[]
         }[]
     }[]
 }

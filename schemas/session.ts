@@ -1,9 +1,15 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface ISession {
+export interface ISessionBase {
   _id: MongoId,
   valid: boolean,
-  owner: MongoId,
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: DateTime,
+  updatedAt: DateTime,
 }
+
+export interface ISessionLink {
+  owner: MongoId,
+}
+
+export interface ISession extends ISessionBase, ISessionLink {}

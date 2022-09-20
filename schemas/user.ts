@@ -1,18 +1,13 @@
 import { Date, DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IUser {
+export interface IUserBase {
     _id: MongoId,
-    tenantId: MongoId,
-    userGroupId: MongoId,
     name: string,
     phoneNo: string,
     email: string,
     password: string,
-    createdBy: MongoId,
-    updatedBy: MongoId,
     userType: string,
-    customPermissions: MongoId[],
     dob: Date,
     aadhaarNo: string,
     pilotLicenceNo: string,
@@ -27,3 +22,13 @@ export interface IUser {
     createdAt: DateTime,
     updatedAt: DateTime,
 }
+
+export interface IUserLink {
+    tenantId: MongoId,
+    userGroupId: MongoId,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    customPermissions: MongoId[],
+}
+
+export interface IUser extends IUserBase, IUserLink {}

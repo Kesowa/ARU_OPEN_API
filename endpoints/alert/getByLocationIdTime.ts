@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, queryParams } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest, Time } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 

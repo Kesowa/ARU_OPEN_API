@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, Integer, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, BadRequest, Time } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 
@@ -32,8 +32,8 @@ interface GetByTenantIdAdvancedRequest {
     /**
      * Example: 2022-10-30 2022-11-21
      */
-    timeRange?: String,
-    user?: String,
+    timeRange?: string,
+    user?: string,
     page: Integer,
     limit: Integer,
 }

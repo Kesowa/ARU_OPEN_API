@@ -1,6 +1,5 @@
-import { endpoint, request, body, response, defaultResponse, queryParams } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
-import { IAlert } from "../../schemas/alert";
 
 /**
  * Provide one of either parameters
@@ -10,24 +9,24 @@ import { IAlert } from "../../schemas/alert";
     path: "/alert/delete-multiple-alerts",
     tags: ["ALERT"]
 })
-class DeleteMultiple {
+class DeleteMultipleAlert {
     @request
-    request(@body body: DeleteMultipleRequest) { }
+    request(@body body: DeleteMultipleAlertRequest) { }
 
     @response({ status: 200 })
-    successfulResponse(@body body: DeleteMultipleResponse) { }
+    successfulResponse(@body body: DeleteMultipleAlertResponse) { }
 
     @response({ status: 400 })
     BadRequest(@body body: BadRequest) { }
 
     @response({ status: 404 })
-    NotFound(@body body: DeleteMultipleNotFound) {}
+    NotFound(@body body: DeleteMultipleAlertNotFound) {}
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }
 }
 
-interface DeleteMultipleRequest {
+interface DeleteMultipleAlertRequest {
     /** Alert IDs to be deleted
      * @oaSchemaProp minItems
      * 1
@@ -37,12 +36,12 @@ interface DeleteMultipleRequest {
     id: MongoId[]
 }
 
-interface DeleteMultipleResponse {
+interface DeleteMultipleAlertResponse {
     status: true,
     message: "Alerts deleted successfully!"
 }
 
-interface DeleteMultipleNotFound {
+interface DeleteMultipleAlertNotFound {
     status: false,
     message: "Failed to delete alerts"
 }

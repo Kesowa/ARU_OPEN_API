@@ -1,6 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
-import { ILayer } from "../../schemas/layer";
+import { ILayerTenantVector } from "./getAllPublic";
 
 /**
  * Get base layer
@@ -40,11 +40,11 @@ interface PublishBaseLayerRequest {
 interface PublishBaseLayerResponse {
     status: true,
     message: "Layer: ${req.body.layerId} has been made public",
-    publicMapRed: String,
+    publicMapRed: string,
     /**
      * Fields tenantId, vector are populated
      */
-    data: ILayer
+    data: ILayerTenantVector
 }
 
 interface PublishBaseLayerNotFound {

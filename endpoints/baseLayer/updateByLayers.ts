@@ -1,6 +1,6 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
-import { ILayer } from "../../schemas/layer";
+import { ILayerVector } from "./setPrimeAttr";
 
 /**
  * Get base layer
@@ -44,7 +44,7 @@ interface UpdateByLayersResponse {
     /**
      * Field vector has been populated
      */
-    data: ILayer
+    data: ILayerVector
 }
 
 interface UpdateByLayersNotFound {

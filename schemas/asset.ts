@@ -1,25 +1,29 @@
-import { String, Date, DateTime } from "@airtasker/spot";
+import { Date, DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IAsset {
+export interface IAssetBase {
     _id: MongoId,
-    assetName: String,
-    userID: MongoId,
-    tenantID: MongoId,
+    assetName: string,
     assetInfo: AssetInfo[],
-    manufactureID: MongoId,
-
-    createdBy: MongoId,
     isActive: boolean,
-    modelID: MongoId,
-    assetOwner: MongoId,
     manufactureDate: Date,
     createdAt: DateTime,
     updatedAt: DateTime,
 }
 
+export interface IAssetLink {
+    userID: MongoId,
+    tenantID: MongoId,
+    manufactureID: MongoId,
+    createdBy: MongoId,
+    modelID: MongoId,
+    assetOwner: MongoId,
+}
+
+export interface IAsset extends IAssetBase, IAssetLink {}
+
 export interface AssetInfo {
-    UIN: String,
-    FCID: String,
-    serialNO: String,
+    UIN: string,
+    FCID: string,
+    serialNO: string,
 }

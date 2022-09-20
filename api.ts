@@ -1,4 +1,4 @@
-import { api, config, securityHeader, String } from "@airtasker/spot";
+import { api, config, securityHeader } from "@airtasker/spot";
 import { oa3server } from "@airtasker/spot/build/lib/src/syntax/oa3server";
 import { oa3serverVariables } from "@airtasker/spot/build/lib/src/syntax/oa3serverVariables";
 

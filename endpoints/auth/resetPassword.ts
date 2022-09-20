@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String, DateTime, pathParams } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, pathParams } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
 
 /**
@@ -48,8 +48,8 @@ class PostResetPasswordAuth {
     request(
         @pathParams pathParams: { token: MongoId },
         @body body: {
-            password: String,
-            password2: String
+            password: string,
+            password2: string
         }
     ) { }
 

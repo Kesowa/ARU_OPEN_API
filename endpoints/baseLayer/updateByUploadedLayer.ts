@@ -1,6 +1,6 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, Attrs, BadRequest, FilePath, MongoId } from "../../misc";
-import { ILayer } from "../../schemas/layer";
+import { ILayerRasterVector } from "./fetch";
 
 /**
  * Get base layer
@@ -39,7 +39,7 @@ interface UpdateByUploadedLayerResponse {
     /**
      * Fields raster and vector are populated
      */
-    data: ILayer
+    data: ILayerRasterVector
 }
 
 interface UpdateByUploadedLayerNotFound {

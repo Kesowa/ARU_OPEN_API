@@ -1,9 +1,8 @@
 import { FilePath, MongoId } from "../misc";
 import { DateTime, Float, Integer } from "@airtasker/spot";
 
-export interface IAlert {
+export interface IAlertBase {
   _id: MongoId,
-  missionId: MongoId;
   location: {
     lat?: Float,
     long?: Float,
@@ -11,10 +10,7 @@ export interface IAlert {
   locationName: string,
   fileSize: Float,
   note?: string,
-  createdBy: MongoId,
   onSite?: boolean,
-  flightId: MongoId,
-  tenantId: MongoId,
   pcount: Integer,
   type?: string,
   image: FilePath,
@@ -22,3 +18,12 @@ export interface IAlert {
   createdAt: DateTime,
   updatedAt: DateTime,
 }
+
+export interface IAlertLink {
+  missionId: MongoId,
+  createdBy: MongoId,
+  flightId: MongoId,
+  tenantId: MongoId,
+}
+
+export interface IAlert extends IAlertBase, IAlertLink {};

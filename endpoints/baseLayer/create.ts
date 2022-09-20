@@ -1,5 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, Date, String } from "@airtasker/spot";
-import { ApiError, BadRequest, Color, File, Properties, SizeExceeded } from "../../misc";
+import { endpoint, request, body, response, defaultResponse, Date } from "@airtasker/spot";
+import { Properties } from "../../geojson";
+import { ApiError, BadRequest, Color, File, SizeExceeded } from "../../misc";
 import { ILayer } from "../../schemas/layer";
 
 /**
@@ -32,11 +33,11 @@ class CreateBaseLayer {
 
 interface CreateBaseLayerRequest {
     file: File,
-    name: String,
+    name: string,
     type: "Vector",
     captureDate: Date,
     color: Color,
-    icon?: String,
+    icon?: string,
     inHeritOriginalColorFromFile: "true" | "false",
 
 }

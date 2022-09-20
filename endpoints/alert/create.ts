@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, Integer, String, Float } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, Integer, Float } from "@airtasker/spot";
 import { FilePath, ApiError, MongoId, BadRequest } from "../../misc";
 import { IAlert } from "../../schemas/alert";
 
@@ -10,12 +10,12 @@ import { IAlert } from "../../schemas/alert";
     path: "/alert/create",
     tags: ["ALERT"]
 })
-class Create {
+class CreateAlert {
     @request
-    request(@body body: CreateRequest) { }
+    request(@body body: CreateAlertRequest) { }
 
     @response({ status: 201 })
-    successfulResponse(@body body: CreateResponse) { }
+    successfulResponse(@body body: CreateAlertResponse) { }
 
     @response({ status: 400 })
     BadRequest(@body body: BadRequest) { }
@@ -24,24 +24,24 @@ class Create {
     defaultResponse(@body body: ApiError) { }
 }
 
-interface CreateRequest {
+interface CreateAlertRequest {
     missionId: MongoId,
     flightId: MongoId,
-    locationName: String,
+    locationName: string,
     locationId?: MongoId,
     location?: {
         lat: Float,
         long: Float
     },
-    note?: String,
+    note?: string,
     onSite?: boolean,
     image: FilePath,
     pcount: Integer,
-    type: String,
+    type: string,
 
 }
 
-interface CreateResponse {
+interface CreateAlertResponse {
     status: true,
     message: "New alert created",
     data: IAlert

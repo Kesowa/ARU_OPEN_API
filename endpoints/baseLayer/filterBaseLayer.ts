@@ -1,6 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, Time } from "../../misc";
-import { ILayer } from "../../schemas/layer";
+import { ILayerRasterVector } from "./fetch";
 
 /**
  * Get base layer
@@ -39,9 +39,9 @@ interface FilterBaseLayerRequest {
     name?: SortOrder,
     captureDate?: SortOrder,
     time: Time,
-    rasterProps?: String[],
-    vectorProps?: String[],
-    vectorPropsType?: String[],
+    rasterProps?: string[],
+    vectorProps?: string[],
+    vectorPropsType?: string[],
 }
 
 interface FilterBaseLayerResponse {
@@ -50,7 +50,7 @@ interface FilterBaseLayerResponse {
     /**
      * Fields raster and vector are populated
      */
-    data: ILayer
+    data: ILayerRasterVector
 }
 
 interface FilterBaseLayerNotFound {

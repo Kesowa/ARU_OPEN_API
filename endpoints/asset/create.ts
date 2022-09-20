@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String, Date } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, Date } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
 import { AssetInfo, IAsset } from "../../schemas/asset";
 
@@ -25,7 +25,7 @@ class CreateAsset {
 }
 
 interface CreateAssetRequest {
-    assetName: String,
+    assetName: string,
     userID: MongoId,
     assetInfo: AssetInfo[],
     userid: MongoId,

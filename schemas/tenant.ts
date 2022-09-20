@@ -1,6 +1,7 @@
+import { DateTime } from "@airtasker/spot"
 import { MongoId } from "../misc"
 
-export interface ITenant {
+export interface ITenantBase {
     _id: MongoId,
     name: string,
     phoneNo: string
@@ -16,9 +17,6 @@ export interface ITenant {
     billingDistrict: string,
     billingState: string,
     billingPin: string,
-    createdBy: MongoId,
-    updatedBy: MongoId,
-    upcomingPackages: [],
     isActive: boolean,
     storageUsed: number,
     actualSize: string,
@@ -26,9 +24,8 @@ export interface ITenant {
     modefiedEmailRequestedOTPs: number[],
     modefiedphoneNoRequested: string,
     modefiedphoneNoRequestedOTPs: number[],
-    activePackage: MongoId,
     bandwidthUsed: number,
-    packageStartDate: Date,
+    packageStartDate: DateTime,
     actualUserCount: number,
     actualMissionCount: number,
     actualAlertCount: number,
@@ -41,6 +38,15 @@ export interface ITenant {
     publicMapRef?: string,
     verificationCode: number,
     isVerified: boolean,
-    createdAt: Date,
-    updatedAt: Date
+    createdAt: DateTime,
+    updatedAt: DateTime
 }
+
+export interface ITenantLink {
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    activePackage: MongoId,
+    upcomingPackages: MongoId[],
+}
+
+export interface ITenant extends ITenantBase, ITenantLink {}

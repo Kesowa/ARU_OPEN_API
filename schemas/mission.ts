@@ -1,19 +1,24 @@
 import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IMission {
+export interface IMissionBase {
   _id: MongoId,
   deliverables?: string[];
   status?: string;
-  user: MongoId,
   pilotAssigned?: string
-  assetID?: MongoId;
   name: string,
   description: string,
+  createdAt: DateTime,
+  updatedAt: DateTime,
+}
+
+export interface IMissionLink {
+  user: MongoId,
+  assetID?: MongoId,
   tenantId?: MongoId,
   clientId?: MongoId[],
   missionType: MongoId,
   invites?: MongoId[],
-  createdAt: DateTime,
-  updatedAt: DateTime,
 }
+
+export interface IMission extends IMissionBase, IMissionLink {}

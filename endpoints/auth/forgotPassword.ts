@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String, DateTime } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest } from "../../misc";
 
 /**
@@ -33,7 +33,7 @@ class ForgotPasswordAuth {
 }
 
 interface ForgotPasswordAuthRequest {
-    email: String
+    email: string
 }
 
 interface ForgotPasswordAuthResponse {

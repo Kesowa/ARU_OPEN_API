@@ -1,11 +1,17 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IInvite {
+export interface IInviteBase {
     _id: MongoId,
     valid: boolean,
+    email: string,
+    createdAt: DateTime,
+    updatedAt: DateTime,
+}
+
+export interface IInviteLink {
     creator: MongoId,
     missionID: MongoId,
-    email: string,
-    createdAt: Date,
-    updatedAt: Date,
 }
+
+export interface IInvite extends IInviteBase, IInviteLink {}

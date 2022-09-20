@@ -1,6 +1,7 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IPermission {
+export interface IPermissionBase {
     name: string,
     isSideNavOption: boolean,
     isFrontendRoute: boolean,
@@ -12,9 +13,14 @@ export interface IPermission {
     sideNavOptionLabel: string,
     sideNavOptionIcon: string,
     description: string
+    isActive: boolean,
+    createdAt: DateTime,
+    updatedAt: DateTime,
+}
+
+export interface IPermissionLink {
     createdBy: MongoId,
     updatedBy: MongoId,
-    isActive: boolean,
-    createdAt: Date,
-    updatedAt: Date,
 }
+
+export interface IPermission extends IPermissionBase, IPermissionLink {}

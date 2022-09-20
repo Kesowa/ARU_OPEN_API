@@ -1,5 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
-import { ApiError, BadRequest, GeoJson, MongoId, SizeExceeded } from "../../misc";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
+import { GeoJson } from "../../geojson";
+import { ApiError, BadRequest, MongoId, SizeExceeded } from "../../misc";
 import { ILayer } from "../../schemas/layer";
 
 /**
@@ -34,7 +35,7 @@ class CreateBaseVectorLayer {
 }
 
 interface CreateBaseVectorLayerRequest {
-    name: String,
+    name: string,
     vectorId: MongoId,
     geoJSON: GeoJson
 }

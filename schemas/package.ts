@@ -1,6 +1,7 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IPackage {
+export interface IPackageBase {
     name: string,
     bandwidth: number,
     storage: number,
@@ -15,9 +16,14 @@ export interface IPackage {
     userGroupCount: number,
     poster: string,
     price: number,
+    isActive: boolean,
+    createdAt: DateTime,
+    updatedAt: DateTime,
+}
+
+export interface IPackageLink {
     createdBy: MongoId,
     updatedBy: MongoId,
-    isActive: boolean,
-    createdAt: Date,
-    updatedAt: Date,
 }
+
+export interface IPackage extends IPackageBase, IPackageLink { }

@@ -1,16 +1,9 @@
 import { Date, DateTime } from "@airtasker/spot";
 import { Color, MongoId } from "../misc";
 
-export interface ILayer {
+export interface ILayerBase {
     _id: MongoId,
     type: string,
-    raster: MongoId;
-    vector: MongoId;
-    missionId: MongoId,
-    tenantId: MongoId,
-    createdBy: MongoId,
-    updatedBy: MongoId,
-    layerGroupId: MongoId,
     captureDate: Date,
     color: Color,
     layerpath: string,
@@ -29,3 +22,15 @@ export interface ILayer {
     createdAt: DateTime,
     updatedAt: DateTime,
 }
+
+export interface ILayerLink {
+    raster: MongoId,
+    vector: MongoId,
+    missionId: MongoId,
+    tenantId: MongoId,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    layerGroupId: MongoId,
+}
+
+export interface ILayer extends ILayerBase, ILayerLink {}

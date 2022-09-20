@@ -1,6 +1,7 @@
+import { DateTime, Date } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IDocument {
+export interface IDocumentBase {
     _id: MongoId,
     name: string,
     modDate: Date,
@@ -8,11 +9,14 @@ export interface IDocument {
     fileType?: string,
     filePath: string,
     folderName: string,
+    createdAt: DateTime,
+    updatedAt: DateTime,
+
+};
+
+export interface IDocumentLink {
     createdBy: MongoId,
     updatedBy: MongoId,
     missionId: MongoId,
     tenantId: MongoId,
-    createdAt: Date,
-    updatedAt: Date,
-
-};
+}   

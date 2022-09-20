@@ -1,6 +1,7 @@
+import { DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IPayment {
+export interface IPaymentBase {
     _id: MongoId,
     razorpay_order_id: string,
     razorpay_payment_id: string,
@@ -8,9 +9,14 @@ export interface IPayment {
     amount: number,
     currency: string,
     status: string,
-    tenant: MongoId,
     paidon: string,
-    package: MongoId,
-    createdAt: Date,
-    updatedAt: Date,
+    createdAt: DateTime,
+    updatedAt: DateTime,
 }
+
+export interface IPaymentLink {
+    tenant: MongoId,
+    package: MongoId,
+}
+
+export interface IPayment extends IPaymentBase, IPaymentLink {}

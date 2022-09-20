@@ -1,6 +1,8 @@
-import { endpoint, request, body, response, defaultResponse, String, DateTime } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
-import { IUser } from "../../schemas/user";
+import { IPermission } from "../../schemas/permission";
+import { IUserBase } from "../../schemas/user";
+import { IUserGroupBase } from "../../schemas/usergroup";
 
 /**
  * Login user, receive session token
@@ -31,8 +33,8 @@ class LoginAuth {
 }
 
 interface LoginAuthRequest {
-    email: String,
-    password: String,
+    email: string,
+    password: string,
 }
 
 interface LoginAuthResponse {
@@ -41,13 +43,28 @@ interface LoginAuthResponse {
     /**
      * Custom permissions User group permissions are populated
      */
-    data: IUser,
+    data: IUserCustomPermission,
     /**
      * Session ID
      * 
      * Use in bearer token
      */
     token: MongoId
+}
+
+export interface IUserCustomPermission extends IUserBase {
+    tenantId: MongoId,
+    userGroupId: MongoId,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    customPermissions: UserPermissions[],
+}
+
+interface UserPermissions extends IUserGroupBase {
+    permissions: IPermission[],
+    tenantId: MongoId,
+    createdBy: MongoId,
+    updatedBy: MongoId,
 }
 
 interface LoginAuthNotFound {

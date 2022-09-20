@@ -1,6 +1,5 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
-import { IAsset } from "../../schemas/asset";
 
 /**
  * Delete asset class with ID

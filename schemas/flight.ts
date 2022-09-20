@@ -1,55 +1,60 @@
+import { DateTime, Float } from "@airtasker/spot"
 import { MongoId } from "../misc"
 
-export interface IFlight {
+export interface IFlightBase {
   _id: MongoId,
   name: string,
   description: string
-  pilotID: MongoId,
-  mission: MongoId,
   date: string,
   time: string,
   duration: string,
-  locationID: MongoId,
   geoFence: {
     polygon: {
-      points: [
-        {
-          lat: Number,
-          lng: Number,
-        },
-      ],
+      points:
+      {
+        lat: Float,
+        lng: Float,
+      }[],
       area: {
-        type: Number,
+        type: Float,
       },
       length: {
-        type: Number,
+        type: Float,
       },
     },
     circle: {
       radius: {
-        type: Number,
+        type: Float,
       },
       area: {
-        type: Number,
+        type: Float,
       },
       center: {
         lat: {
-          type: Number,
+          type: Float,
         },
         lng: {
-          type: Number,
+          type: Float,
         },
       },
     },
   },
   centerPoints?: {
-    lat: number,
-    lng: number
+    lat: Float,
+    lng: Float
   },
-  tenant: MongoId
   geoLocation?: string,
+  createdAt: DateTime,
+  updatedAt: DateTime,
+}
+
+export interface IFlightLink {
   assetID?: MongoId,
   client: MongoId,
-  createdAt: Date,
-  updatedAt: Date,
+  tenant: MongoId,
+  locationID: MongoId,
+  pilotID: MongoId,
+  mission: MongoId,
 }
+
+export interface IFlight extends IFlightBase, IFlightLink { }

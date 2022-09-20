@@ -1,13 +1,10 @@
+import { Date, DateTime } from "@airtasker/spot";
 import { MongoId } from "../misc";
 
-export interface IFlightLog {
+export interface IFlightLogBase {
     _id: MongoId,
     date: Date,
-    time: Date,
-    missionID: MongoId ,
-    flightID: MongoId ,
-    assetID: MongoId ,
-    locationID?: MongoId ,
+    time: DateTime,
     duration: string,
     location: string,
     geofence: {},
@@ -16,5 +13,14 @@ export interface IFlightLog {
     pilotName: string,
     jobType: string,
     deliverables: string[],
+}
+
+export interface IFlightLogLink {
+    missionID: MongoId,
+    flightID: MongoId,
+    assetID: MongoId,
+    locationID?: MongoId,
     tenantId: MongoId
 }
+
+export interface IFlightLog extends IFlightLogBase, IFlightLogLink {}

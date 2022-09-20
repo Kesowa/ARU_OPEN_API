@@ -1,6 +1,6 @@
 import { MongoId } from "../misc"
 
-export interface IManufacturer {
+export interface IManufacturerBase {
     _id: MongoId,
     name: string,
     address: string,
@@ -14,6 +14,11 @@ export interface IManufacturer {
     }[],
     createdAt: Date,
     updatedAt: Date,
+}
+
+export interface IManufacturerLink {
     createdBy: MongoId
     tenantID: MongoId,
 }
+
+export interface IManufacturer extends IManufacturerBase, IManufacturerLink {}

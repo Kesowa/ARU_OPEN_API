@@ -1,5 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, Integer, String } from "@airtasker/spot";
-import { ApiError, BadRequest, Feature, MongoId } from "../../misc";
+import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
+import { Feature } from "../../geojson";
+import { ApiError, BadRequest, MongoId } from "../../misc";
 
 /**
  * Get base layer
@@ -27,9 +28,9 @@ class SearchPublicLayer {
 }
 
 interface SearchPublicLayerRequest {
-    mapRef: String,
-    value: String,
-    key: String,
+    mapRef: string,
+    value: string,
+    key: string,
 }
 
 interface SearchPublicLayerResponse {

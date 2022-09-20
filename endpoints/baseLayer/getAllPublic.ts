@@ -1,6 +1,8 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, String } from "@airtasker/spot";
-import { ApiError, BadRequest } from "../../misc";
-import { ILayer } from "../../schemas/layer";
+import { endpoint, request, body, response, defaultResponse, queryParams } from "@airtasker/spot";
+import { ApiError, BadRequest, MongoId } from "../../misc";
+import { ILayer, ILayerBase } from "../../schemas/layer";
+import { ITenant } from "../../schemas/tenant";
+import { IVector } from "../../schemas/vectorprops";
 
 /**
  * Get base layer
@@ -28,7 +30,7 @@ class GetAllPublicBaseLayers {
 }
 
 interface GetAllPublicBaseLayersRequest {
-    mapRef: String
+    mapRef: string
 }
 
 interface GetAllPublicBaseLayersResponse {
@@ -37,7 +39,17 @@ interface GetAllPublicBaseLayersResponse {
     /**
      * Fields tenantId, vector are populated
      */
-    data: ILayer[]
+    data: ILayerTenantVector[]
+}
+
+export interface ILayerTenantVector extends ILayerBase {
+    raster: MongoId,
+    vector: IVector,
+    missionId: MongoId,
+    tenantId: ITenant,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    layerGroupId: MongoId,
 }
 
 interface GetAllPublicBaseLayersNotFound {

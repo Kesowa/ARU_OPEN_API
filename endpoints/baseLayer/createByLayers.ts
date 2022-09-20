@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, Attrs, BadRequest, Color, MongoId, SizeExceeded } from "../../misc";
 import { ILayer } from "../../schemas/layer";
 
@@ -34,7 +34,7 @@ class CreateByLayers {
 }
 
 interface CreateByLayersRequest {
-    name: String,
+    name: string,
     pattr: Attrs[],
     layers: MongoId[],
     vectorTypeId: MongoId,

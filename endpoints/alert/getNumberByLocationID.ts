@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, queryParams, String, Integer } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
 
 /**
@@ -38,7 +38,7 @@ interface GetNumberByLocationIDResponse {
 }
 
 interface Location {
-    locationName: String,
+    locationName: string,
 }
 
 interface GetNumberByLocationIDNotFound {

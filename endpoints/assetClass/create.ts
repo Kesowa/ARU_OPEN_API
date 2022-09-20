@@ -1,4 +1,4 @@
-import { endpoint, request, body, response, defaultResponse, String, DateTime } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse, DateTime } from "@airtasker/spot";
 import { ApiError, BadRequest } from "../../misc";
 import { IAssetClass } from "../../schemas/assetClass";
 
@@ -25,7 +25,7 @@ class CreateAssetClass {
 }
 
 interface CreateAssetClassRequest {
-    typeName: String,
+    typeName: string,
     createdAt?: DateTime
 }
 
