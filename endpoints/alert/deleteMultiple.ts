@@ -28,6 +28,12 @@ class DeleteMultiple {
 }
 
 interface DeleteMultipleRequest {
+    /** Alert IDs to be deleted
+     * @oaSchemaProp minItems
+     * 1
+     * @oaSchemaProp uniqueItems
+     * true
+     *  */
     id: MongoId[]
 }
 

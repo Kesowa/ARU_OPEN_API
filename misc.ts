@@ -66,13 +66,14 @@ export type Attrs = "SL_NO" | "AA" | "Solar_ID" | "Placed_IN" | "Latitude" | "Lo
  */
 export type Color = string;
 
-/**
- * Format: Value TimeUnit
- * 
- * TimeUnit: day(s), week(s), year(s)
- * 
- * Example: 10 days
- */
+/** Format of time parameter
+ * @oaSchemaProp title
+ * "Time Format"
+ * @oaSchemaProp pattern
+ * "^[0-9]+ (day|week|year)s?$"
+ * @oaSchemaProp example
+ * "7 days"
+ *  */
 export type Time = string;
 
 export interface GeoJson {
