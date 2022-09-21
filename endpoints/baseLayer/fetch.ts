@@ -1,8 +1,6 @@
 import { endpoint, request, body, response, defaultResponse, pathParams } from "@airtasker/spot";
-import { ApiError, BadRequest, MongoId } from "../../misc";
-import { ILayerBase } from "../../schemas/layer";
-import { IRaster } from "../../schemas/rasterprops";
-import { IVector } from "../../schemas/vectorprops";
+import { ApiError, BadRequest } from "../../misc";
+import { ILayerRasterVector } from "../../schemas/layer";
 
 /**
  * Get base layer
@@ -42,15 +40,7 @@ interface FetchBaseLayerResponse {
     data: ILayerRasterVector[]
 }
 
-export interface ILayerRasterVector extends ILayerBase {
-    raster: IRaster,
-    vector: IVector,
-    missionId: MongoId,
-    tenantId: MongoId,
-    createdBy: MongoId,
-    updatedBy: MongoId,
-    layerGroupId: MongoId,
-}
+
 
 interface FetchBaseLayerNotFound {
     status: false,

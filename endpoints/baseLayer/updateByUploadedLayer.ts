@@ -1,6 +1,6 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, Attrs, BadRequest, FilePath, MongoId } from "../../misc";
-import { ILayerRasterVector } from "./fetch";
+import { ILayerRasterVector } from "../../schemas/layer";
 
 /**
  * Get base layer
