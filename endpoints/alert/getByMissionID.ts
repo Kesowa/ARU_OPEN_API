@@ -1,10 +1,6 @@
 import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
-import { IAlertBase } from "../../schemas/alert";
-import { IFlight } from "../../schemas/flight";
-import { IMission } from "../../schemas/mission";
-import { IUser } from "../../schemas/user";
-
+import { IAlertMissionCreatedFlight } from "../../schemas/alert";
 /**
  * Provide one of either parameters
  */
@@ -51,15 +47,8 @@ interface GetByMissionIDResponse {
     /**
      * Has the missionId, FlightId, and createdBy fields populated with mission, flight, and user models
      */
-    data: GetByMissionIDData[],
+    data: IAlertMissionCreatedFlight[],
     total: Integer,
-}
-
-interface GetByMissionIDData extends IAlertBase {
-    missionId: IMission,
-    createdBy: IUser,
-    flightId: IFlight,
-    tenantId: MongoId,
 }
 
 interface GetByMissionIDNotFound {

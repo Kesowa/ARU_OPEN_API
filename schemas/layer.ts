@@ -1,6 +1,7 @@
 import { Date, DateTime } from "@airtasker/spot";
 import { Color, MongoId } from "../misc";
 import { IRaster } from "./rasterprops";
+import { ITenant } from "./tenant";
 import { IVector } from "./vectorprops";
 
 export interface ILayerBase {
@@ -45,4 +46,24 @@ export interface ILayerRasterVector extends ILayerBase {
     layerGroupId: MongoId,
 }
 
-export interface ILayer extends ILayerBase, ILayerLink {}
+export interface ILayerTenantVector extends ILayerBase {
+    raster: MongoId,
+    vector: IVector,
+    missionId: MongoId,
+    tenantId: ITenant,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    layerGroupId: MongoId,
+}
+
+export interface ILayerVector extends ILayerBase {
+    raster: MongoId,
+    vector: IVector,
+    missionId: MongoId,
+    tenantId: MongoId,
+    createdBy: MongoId,
+    updatedBy: MongoId,
+    layerGroupId: MongoId,
+}
+
+export interface ILayer extends ILayerBase, ILayerLink { }

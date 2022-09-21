@@ -1,7 +1,6 @@
-import { endpoint, request, body, response, defaultResponse, queryParams } from "@airtasker/spot";
+import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, Attrs, BadRequest, FilePath, MongoId } from "../../misc";
-import { ILayer, ILayerBase } from "../../schemas/layer";
-import { IVector } from "../../schemas/vectorprops";
+import { ILayerVector } from "../../schemas/layer";
 
 /**
  * Get base layer
@@ -41,16 +40,6 @@ interface SetPrimeAttrResponse {
      * Vector is populated
      */
     data: ILayerVector
-}
-
-export interface ILayerVector extends ILayerBase {
-    raster: MongoId,
-    vector: IVector,
-    missionId: MongoId,
-    tenantId: MongoId,
-    createdBy: MongoId,
-    updatedBy: MongoId,
-    layerGroupId: MongoId,
 }
 
 interface SetPrimeAttrNotFound {

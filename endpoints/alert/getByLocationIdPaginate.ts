@@ -1,9 +1,6 @@
 import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
-import { IUser } from "../../schemas/user";
-import { IAlert, IAlertBase } from "../../schemas/alert";
-import { IFlight } from "../../schemas/flight";
-import { IMission } from "../../schemas/mission";
+import { IAlertMissionCreatedFlight } from "../../schemas/alert";
 
 /**
  * Provide one of either parameters
@@ -53,14 +50,7 @@ interface GetByLocationIdPaginateResponse {
     /**
      * Has the missionId, FlightId, and createdBy fields populated with mission, flight, and user models
      */
-    data: GetByLocationIdPaginateData[],
-}
-
-interface GetByLocationIdPaginateData extends IAlertBase {
-    missionId: IMission,
-    createdBy: IUser,
-    flightId: IFlight,
-    tenantId: MongoId,
+    data: IAlertMissionCreatedFlight[],
 }
 
 interface GetByLocationIdPaginateNotFound {
