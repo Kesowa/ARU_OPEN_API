@@ -38,9 +38,7 @@ interface LoginAuthRequest {
 interface LoginAuthResponse {
     status: true,
     message: "login sucessfully",
-    /**
-     * Custom permissions User group permissions are populated
-     */
+
     data: IUserCustomPermission,
     /**
      * Session ID

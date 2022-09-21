@@ -1,6 +1,6 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest } from "../../misc";
-import { IUserCustomPermission } from "./login";
+import { IUserCustomPermission } from "../../schemas/user";
 
 /**
  * Get user details

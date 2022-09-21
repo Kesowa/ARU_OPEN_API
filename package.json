@@ -3,12 +3,13 @@
     "lint": "spot lint api.ts",
     "serve": "spot docs api.ts",
     "validate": "spot validate api.ts",
-    "generate": "spot generate --contract api.ts --language yaml --generator openapi3 --out ./build",
+    "generate": "spot generate --contract api.ts --language yaml --generator openapi3 --out ./build && openapi-typescript ./build/api.yml --version 3 --output ./build/schema.ts",
     "build": "redoc-cli build ./build/api.yml --output ./build/index.html --title 'ARU Docs' --cdn true",
     "docs": "npm run lint && npm run validate && npm run generate && npm run build"
   },
   "dependencies": {
     "@airtasker/spot": "^1.9.0",
+    "openapi-typescript": "^5.4.1",
     "redoc-cli": "^0.13.20"
   }
 }

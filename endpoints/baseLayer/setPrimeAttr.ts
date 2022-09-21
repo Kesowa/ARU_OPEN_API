@@ -36,9 +36,7 @@ interface SetPrimeAttrRequest {
 interface SetPrimeAttrResponse {
     status: true,
     message: "Prime attributes added successfully",
-    /**
-     * Vector is populated
-     */
+
     data: ILayerVector
 }
 

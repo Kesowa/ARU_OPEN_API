@@ -1,6 +1,6 @@
 import { endpoint, request, body, response, defaultResponse } from "@airtasker/spot";
 import { ApiError, BadRequest, MongoId } from "../../misc";
-import { ILayerTenantVector } from "./getAllPublic";
+import { ILayerTenantVector } from "../../schemas/layer";
 
 /**
  * Get base layer
