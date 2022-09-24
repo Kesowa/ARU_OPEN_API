@@ -3,10 +3,12 @@ import { oa3server } from "@airtasker/spot/build/lib/src/syntax/oa3server";
 import { oa3serverVariables } from "@airtasker/spot/build/lib/src/syntax/oa3serverVariables";
 
 import "./endpoints/alert";
-import "./endpoints/asset";
-import "./endpoints/assetClass";
+// import "./endpoints/asset";
+// import "./endpoints/assetClass";
 import "./endpoints/auth";
-import "./endpoints/baseLayer";
+// import "./endpoints/baseLayer";
+import "./endpoints/document";
+import "./endpoints/vod";
 
 @api({ name: "ARU API", version: "1.4.11" })
 @config({
@@ -17,7 +19,14 @@ import "./endpoints/baseLayer";
   }
 })
 class Api {
-  /**Session-based auth using bearer token */
+  /**
+   * Session-based auth using Bearer token
+   * 
+   * Get token from /auth/login
+   * 
+   * @example
+   * "Bearer 507f1f77bcf86cd799439011"
+   */
   @securityHeader
   "Authorization": string
   @oa3server({

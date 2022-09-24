@@ -1,58 +1,57 @@
 import { endpoint, request, body, response, defaultResponse, queryParams, Integer } from "@airtasker/spot";
 import { ApiError, MongoId, BadRequest } from "../../misc";
-import { IAlertMissionCreatedFlight } from "../../schemas/alert";
+import { IVODFlightMission } from "../../schemas/VOD";
 /**
- * Get outcome images created by drone and user
+ * Get uploaded videos for mission.
  */
 @endpoint({
     method: "GET",
-    path: "/alert/get-alerts-By-mission-ID",
-    tags: ["ALERT"]
+    path: "/vod//get-by-missionID",
+    tags: ["VOD"]
 })
-class GetByMissionID {
+class GetVODByMissionID {
     @request
-    request(@queryParams queryParams: GetByMissionIDRequest) { }
+    request(@queryParams queryParams: GetVODByMissionIDRequest) { }
 
     @response({ status: 200 })
-    successfulResponse(@body body: GetByMissionIDResponse) { }
+    successfulResponse(@body body: GetVODByMissionIDResponse) { }
 
     @response({ status: 400 })
     BadRequest(@body body: BadRequest) { }
 
     @response({ status: 404 })
-    NotFound(@body body: GetByMissionIDNotFound) { }
+    NotFound(@body body: GetVODByMissionIDNotFound) { }
 
     @defaultResponse
     defaultResponse(@body body: ApiError) { }
 }
 
-interface GetByMissionIDRequest {
+interface GetVODByMissionIDRequest {
     page: Integer,
     limit: Integer,
     /** Sort using field name in desc or asc order
      * @oaSchemaProp title
-     * "Sort Alerts"
+     * "Sort Videos"
      * @oaSchemaProp pattern
      * "^(createdAt|updatedAt|location|locationName|pcount|fileSize|type):(desc|asc)$"
      * @oaSchemaProp example
      * "createdAt:desc"
      *  */
     sortBy: string,
-    alertType?: string,
-    id: MongoId,
+    missionID: MongoId,
 }
 
-interface GetByMissionIDResponse {
+interface GetVODByMissionIDResponse {
     status: true,
-    message: "Alert fetched successfully",
+    message: "sucessfully fetched the VODs",
     /**
      * Has the missionId, FlightId, and createdBy fields populated with mission, flight, and user models
      */
-    data: IAlertMissionCreatedFlight[],
-    total: Integer,
+    data: IVODFlightMission[],
+    TotalPages: Integer,
 }
 
-interface GetByMissionIDNotFound {
+interface GetVODByMissionIDNotFound {
     status: false,
-    message: "No data found",
+    message: "No Document found",
 }
