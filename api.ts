@@ -3,10 +3,10 @@ import { oa3server } from "@airtasker/spot/build/lib/src/syntax/oa3server";
 import { oa3serverVariables } from "@airtasker/spot/build/lib/src/syntax/oa3serverVariables";
 
 import "./endpoints/alert";
-// import "./endpoints/asset";
-// import "./endpoints/assetClass";
+import "./endpoints/asset";
+import "./endpoints/assetClass";
 import "./endpoints/auth";
-// import "./endpoints/baseLayer";
+import "./endpoints/baseLayer";
 import "./endpoints/document";
 import "./endpoints/vod";
 
